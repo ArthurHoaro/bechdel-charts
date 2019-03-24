@@ -12,9 +12,6 @@ RUN touch /var/log/hello.log
 
 WORKDIR /app
 
-# RUN ln -sf /dev/stdout /var/log/bechdel.log \
-#     && ln -sf /dev/stderr /var/log/bechdel-errors.log
-
 RUN yarn install
 COPY . .
 RUN yarn run build
@@ -24,6 +21,5 @@ COPY supervisord.conf /etc/supervisor/supervisord.conf
 VOLUME /app/src/assets/data
 
 EXPOSE 8080
-# CMD [ "http-server", "/app/dist" ]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
 
