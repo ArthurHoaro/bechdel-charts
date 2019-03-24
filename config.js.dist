@@ -1,0 +1,4 @@
+module.exports = {
+  TMDB_KEY: 'key',
+  OMDB_KEY: 'key',
+};
