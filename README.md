@@ -1,29 +1,36 @@
-# bechdel-vue2
+# Bechdel Test Statistics
 
-## Project setup
-```
-yarn install
-```
+ Source code of [bechdel.hoa.ro](https://bechdel.hoa.ro).
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+## Data sources
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+  * [bechdeltest.com](https://bechdeltest.com/)
+  * [themoviedb.org](https://www.themoviedb.org)
+  * [omdbapi.com](https://www.omdbapi.com/)
 
-### Run your tests
-```
-yarn run test
-```
+## Development
 
-### Lints and fixes files
-```
-yarn run lint
-```
+This project is built with [VueJS](https://vuejs.org/), 
+[amChart](https://www.amcharts.com/) 
+and [Bootstrap](https://getbootstrap.com/).
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### How to
+
+In order to make it running, you need to build your movie database.
+
+  1. Configure TMDB and OMDB API keys in `config.js` (copy the dist file from `config.js.dist`).
+  2. `yarn install`
+  3. Run `update.sh`, it'll build a full JSON DB in `src/assets/data` and a lighter version for
+  statistics usage.
+
+### Run
+
+In development mode, just run `yarn run serve`.
+
+You can also build and run the provided Docker image,
+which includes a CRON task updating the data once a day.
+
+## License
+
+[MIT](https://github.com/ArthurHoaro/bechdel-charts/blob/master/LICENSE.md)
+
