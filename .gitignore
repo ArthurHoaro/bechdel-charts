@@ -4,7 +4,6 @@ node_modules
 config.js
 src/assets/data/*
 !src/assets/data/.gitkeep
-.env
 
 # local env files
 .env.local
