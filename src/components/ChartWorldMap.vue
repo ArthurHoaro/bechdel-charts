@@ -2,7 +2,7 @@
   <div class="chart">
     <h3>Movies passing the tests by country of production</h3>
     <div id="worldchart"></div>
-    <div class="chartDesc">Coutries with 10 movies or less have been excluded.<br>
+    <div class="chartDesc">Coutries with 10 or fewer movies have been excluded.<br>
     Movies with multiple countries of production have been counted for each country.</div>
   </div>
 </template>

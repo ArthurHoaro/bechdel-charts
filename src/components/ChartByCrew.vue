@@ -1,6 +1,6 @@
 <template>
   <div class="chart">
-    <h3>Movies passing the tests by crew gender</h3>
+    <h3>Movies passing the test by crew gender</h3>
     <div class="chartDesc">Not specified genders have been excluded.</div>
     <h4>{{ jobs[0] }}</h4>
     <div class="row">

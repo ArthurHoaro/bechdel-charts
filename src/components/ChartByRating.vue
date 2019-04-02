@@ -1,6 +1,6 @@
 <template>
   <div class="chart">
-    <h3>Movies passing the tests by IMDB user ratings</h3>
+    <h3>Movies passing the test by IMDB user ratings</h3>
     <div id="ratingschart"></div>
     <div class="chartDesc">
       Due to API restrictions, user ratings are retrieved

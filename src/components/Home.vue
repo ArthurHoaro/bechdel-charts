@@ -57,7 +57,7 @@
             Made by ArthurHoaro. <a href="https://github.com/ArthurHoaro/bechdel-charts">Source code</a>.
           </p>
           <p>
-            Charts are based on a {{ movieCount }} movies database and are updated everyday.
+            Charts are based on a database of {{ movieCount }} movies and are updated daily.
           </p>
           <p>
             These charts rely on data openly and kindly provided by
