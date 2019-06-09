@@ -3,7 +3,7 @@ node_modules
 /dist
 config.js
 src/assets/data/*
-!src/assets/data/.gitkeep
+!src/assets/data/movies.json
 
 # local env files
 .env.local
