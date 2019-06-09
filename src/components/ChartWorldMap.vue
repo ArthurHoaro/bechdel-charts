@@ -36,17 +36,17 @@ export default {
       movie.imdbData.production_countries.forEach((country) => {
         counter[country.iso_3166_1] = counter[country.iso_3166_1] || { total: 0, value: 0 };
         counter[country.iso_3166_1].total = counter[country.iso_3166_1].total + 1 || 1;
-        if (parseInt(movie.rating, 10) === 3) {
+        if (parseInt(movie.rating) === 3) {
           counter[country.iso_3166_1].value = counter[country.iso_3166_1].value + 1 || 1;
         }
       });
     });
     this.processedData = Object.keys(counter)
-      .filter(index => counter[index].total > 10)
-      .map(index => ({
-        id: index,
-        value: Math.round(counter[index].value * 100 / counter[index].total * 100) / 100,
-      }));
+    .filter(index => counter[index].total > 10)
+    .map(index => ({
+      id: index,
+      value: Math.round(counter[index].value * 100 / counter[index].total * 100) / 100,
+    }));
 
     const map = am4core.create('worldchart', am4maps.MapChart);
     // eslint-disable-next-line

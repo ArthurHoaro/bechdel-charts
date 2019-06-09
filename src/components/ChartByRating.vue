@@ -35,20 +35,20 @@ export default {
       const rating = Math.round(movie.imdbData.vote_average);
       counter[rating] = counter[rating] || { total: 0, value: 0 };
       counter[rating].total = counter[rating].total + 1 || 1;
-      if (parseInt(movie.rating, 10) === 3) {
+      if (parseInt(movie.rating) === 3) {
         counter[rating].value = counter[rating].value + 1 || 1;
       }
     });
 
     this.processedData = Object.keys(counter).sort((a, b) => a - b)
-      .filter(index => counter[index].total > 100)
-      .map(index => ({
-        genre: `${index} ⭐`,
-        passed: Math.round(counter[index].value * 100 / counter[index].total * 100) / 100,
-        failed: (Math.round(
-          (counter[index].total - counter[index].value) * 100 / counter[index].total * 100,
-        ) / 100),
-      }));
+    .filter(index => counter[index].total > 100)
+    .map(index => ({
+      genre: `${index} ⭐`,
+      passed: Math.round(counter[index].value * 100 / counter[index].total * 100) / 100,
+      failed: (Math.round(
+        (counter[index].total - counter[index].value) * 100 / counter[index].total * 100,
+      ) / 100),
+    }));
 
     // Create chart instance
     const chart = am4core.create('ratingschart', am4charts.XYChart);

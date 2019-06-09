@@ -27,7 +27,7 @@ In order to make it running, you need to build your movie database.
 
 In development mode, just run `yarn run serve`.
 
-You can also build and run the provided Docker image,
+You can also build and run the provided [Docker image](https://hub.docker.com/r/arthurhoaro/bechdel),
 which includes a CRON task updating the data once a day.
 
 ## License

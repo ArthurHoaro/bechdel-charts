@@ -70,7 +70,7 @@ export default {
           counter[job] = counter[job] || {};
           counter[job][person.gender] = counter[job][person.gender] || { total: 0, value: 0 };
           counter[job][person.gender].total = counter[job][person.gender].total + 1 || 1;
-          if (parseInt(movie.rating, 10) === 3) {
+          if (parseInt(movie.rating) === 3) {
             counter[job][person.gender].value = counter[job][person.gender].value + 1 || 1;
           }
         });
@@ -78,26 +78,26 @@ export default {
     });
     this.jobs.forEach((job, iJob) => {
       this.processedData[job] = Object.keys(counter[job])
-        .map(index => ([
-          {
-            name: 'Failed',
-            value: (Math.round(
-              (counter[job][index].total - counter[job][index].value)
+      .map(index => ([
+        {
+          name: 'Failed',
+          value: (Math.round(
+            (counter[job][index].total - counter[job][index].value)
               * 100 / counter[job][index].total * 100,
-            ) / 100),
-            color: am4core.color(Constants.PALETTE_COLORS[0]),
-          },
-          {
-            name: 'Passed',
-            value: Math.round(
-              counter[job][index].value * 100 / counter[job][index].total * 100,
-            ) / 100,
-            color: am4core.color(Constants.PALETTE_COLORS[3]),
-          },
-        ]));
+          ) / 100),
+          color: am4core.color(Constants.PALETTE_COLORS[0]),
+        },
+        {
+          name: 'Passed',
+          value: Math.round(
+            counter[job][index].value * 100 / counter[job][index].total * 100,
+          ) / 100,
+          color: am4core.color(Constants.PALETTE_COLORS[3]),
+        },
+      ]));
 
       Object.keys(this.processedData[job]).forEach((gender) => {
-        const chart = am4core.create(`gender${iJob}${parseInt(gender, 10) + 1}`, am4charts.SlicedChart);
+        const chart = am4core.create(`gender${iJob}${parseInt(gender) + 1}`, am4charts.SlicedChart);
         chart.data = this.processedData[job][gender];
         chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
         const series = chart.series.push(new am4charts.PictorialStackedSeries());
@@ -105,7 +105,7 @@ export default {
         series.dataFields.category = 'name';
         series.alignLabels = true;
 
-        series.maskSprite.path = this.icons[parseInt(gender, 10) + 1];
+        series.maskSprite.path = this.icons[parseInt(gender) + 1];
         series.ticks.template.locationX = 1;
         series.ticks.template.locationY = 0.5;
         series.slices.template.propertyFields.fill = 'color';

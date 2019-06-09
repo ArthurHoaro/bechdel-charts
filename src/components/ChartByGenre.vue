@@ -1,6 +1,6 @@
 <template>
   <div class="chart">
-    <h3>Movies passing the tests by genre</h3>
+    <h3>Movies passing the test by genre</h3>
     <div id="genrechart"></div>
   </div>
 </template>
@@ -30,20 +30,20 @@ export default {
       movie.imdbData.genres.forEach((genre) => {
         counter[genre.name] = counter[genre.name] || { total: 0, value: 0 };
         counter[genre.name].total = counter[genre.name].total + 1 || 1;
-        if (parseInt(movie.rating, 10) === 3) {
+        if (parseInt(movie.rating) === 3) {
           counter[genre.name].value = counter[genre.name].value + 1 || 1;
         }
       });
     });
     this.processedData = Object.keys(counter)
-      .map(index => ({
-        genre: index,
-        passed: Math.round(counter[index].value * 100 / counter[index].total * 100) / 100,
-        failed: (Math.round(
-          (counter[index].total - counter[index].value) * 100 / counter[index].total * 100,
-        ) / 100),
-      }))
-      .sort((a, b) => a.failed - b.failed);
+    .map(index => ({
+      genre: index,
+      passed: Math.round(counter[index].value * 100 / counter[index].total * 100) / 100,
+      failed: (Math.round(
+        (counter[index].total - counter[index].value) * 100 / counter[index].total * 100,
+      ) / 100),
+    }))
+    .sort((a, b) => a.failed - b.failed);
 
     // Create chart instance
     const chart = am4core.create('genrechart', am4charts.XYChart);

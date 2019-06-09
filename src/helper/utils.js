@@ -5,12 +5,12 @@ class Utils {
 
   static getRatingLabel(rating) {
     switch (rating) {
-      case 0:
-        return 'Fail all tests';
-      case 3:
-        return 'Pass all tests';
-      default:
-        return `Pass ${rating} of 3 tests`;
+    case 0:
+      return 'Fail all tests';
+    case 3:
+      return 'Pass all tests';
+    default:
+      return `Pass ${rating} of 3 tests`;
     }
   }
 }

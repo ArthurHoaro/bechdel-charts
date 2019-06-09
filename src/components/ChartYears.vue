@@ -34,23 +34,23 @@ export default {
   mounted() {
     const counter = {};
     this.data.forEach((movie) => {
-      const year = parseInt(movie.year, 10);
+      const year = parseInt(movie.year);
       if (!year || year < this.startYear || year > this.endYear) {
         return;
       }
       counter[movie.year] = counter[movie.year] || { total: 0 };
       counter[movie.year].total = counter[movie.year].total + 1 || 1;
-      const rating = parseInt(movie.rating, 10);
+      const rating = parseInt(movie.rating);
       counter[movie.year][rating] = counter[movie.year][rating] + 1 || 1;
     });
     this.processedData = Object.keys(counter)
-      .map(index => ({
-        category: index,
-        value1: Math.round(counter[index][0] * 100 / counter[index].total * 100) / 100 || 0,
-        value2: Math.round(counter[index][1] * 100 / counter[index].total * 100) / 100 || 0,
-        value3: Math.round(counter[index][2] * 100 / counter[index].total * 100) / 100 || 0,
-        value4: Math.round(counter[index][3] * 100 / counter[index].total * 100) / 100 || 0,
-      }));
+    .map(index => ({
+      category: index,
+      value1: Math.round(counter[index][0] * 100 / counter[index].total * 100) / 100 || 0,
+      value2: Math.round(counter[index][1] * 100 / counter[index].total * 100) / 100 || 0,
+      value3: Math.round(counter[index][2] * 100 / counter[index].total * 100) / 100 || 0,
+      value4: Math.round(counter[index][3] * 100 / counter[index].total * 100) / 100 || 0,
+    }));
 
     const chart = am4core.create('yearschart', am4charts.XYChart);
 

@@ -38,12 +38,12 @@ export default {
         this.year = movie.year < this.year ? movie.year : this.year;
       }
       if (!this.minYear || movie.year >= this.minYear) {
-        series[parseInt(movie.rating, 10)] = series[parseInt(movie.rating, 10)] + 1 || 1;
+        series[parseInt(movie.rating)] = series[parseInt(movie.rating)] + 1 || 1;
         total += 1;
       }
     });
     this.processedData = Object.keys(series).map(key => ({
-      category: Utils.getRatingLabel(parseInt(key, 10)),
+      category: Utils.getRatingLabel(parseInt(key)),
       value: Math.round(series[key] * 100 / total * 100) / 100,
     }));
 

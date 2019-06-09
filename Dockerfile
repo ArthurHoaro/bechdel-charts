@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:11
 
 RUN apt-get update && apt-get install -y cron supervisor
 RUN yarn global add http-server
@@ -20,4 +20,3 @@ VOLUME /app/src/assets/data
 
 EXPOSE 8080
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
-
