@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Home msg="Bechdel Test Statistics"/>
+    <Home msg="Bechdel Movie Test Statistics"/>
   </div>
 </template>
 
