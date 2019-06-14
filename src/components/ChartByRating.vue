@@ -32,7 +32,7 @@ export default {
   mounted() {
     const counter = {};
     this.data.forEach((movie) => {
-      const rating = Math.round(movie.imdbData.vote_average);
+      const rating = Math.round(movie.omdbData.imdbRating);
       counter[rating] = counter[rating] || { total: 0, value: 0 };
       counter[rating].total = counter[rating].total + 1 || 1;
       if (parseInt(movie.rating) === 3) {
